@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+header {
+    background: #000;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+header .logo{
+    max-height: 80px;
+}
+
+header .header__account a{
+    display: inline-block;
+    text-align: center;
+    width: 150px;
+    margin: 0 10px;
+    padding: 10px 0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+header .header__account .login{
+    color: #45ecd3;
+    border: 2px solid #45ecd3;
+}
+
+header .header__account .register{
+    color: #000;
+    border: 2px solid #45ecd3;
+    background: #45ecd3;
+}
+
+main {
+    min-height: calc(100vh - 200px);
+    background: #222;
+    display: flex;
+}
+
+
+
+main .sx_column, main .dx_column {
+    width: 500px;
+}
+
+main .dx_column {
+    padding: 20px;
+}
+
+.menu {
+    width: 100%;
+    margin-top: 20px;
+    list-style: none;
+}
+
+.menu:first-child {
+    border-top: 1px solid #000;
+}
+
+.menu li a{
+    padding: 20px 40px;
+    display: block;
+    border-bottom: 1px solid #000;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.cart {
+    background: #343434;
+    min-height: 300px;
+    color: #fff;
+}
+
+
+
+main .container {
+    width: 100%;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    padding: 40px;
+}
+
+main .container .daily_header{
+    background: #000;
+    padding: 10px;
+    font-size: 14px;
+}
+
+main .container .daily_container{
+}
+
+.match_first_line, .match{
+    display: flex;
+    border-bottom: 1px solid #000;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.match_first_line{
+    padding: 0px 20px;
+}
+
+.date{
+    font-size: 10px;
+    color: #939393;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.teams {
+    width: 100%;
+    line-height: 48px;
+}
+
+.quote {
+    display: flex;
+    align-items: center;
+}
+
+.quote .odds-first{
+    width: 100px;
+    text-align: center;
+    margin: 5px;
+    padding: 10px 0;
+    border-radius: 10px;
+    color: #45ecd3;
+    font-weight: bold;
+}
+
+.quote .odds{
+    width: 100px;
+    background: #45ecd3;
+    text-align: center;
+    margin: 5px;
+    padding: 10px 0;
+    border-radius: 10px;
+    color: #000;
+    font-weight: bold;
+}
+
+
+
+footer {
+    height: 100px;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #333;
+}
