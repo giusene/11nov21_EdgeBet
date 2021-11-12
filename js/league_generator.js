@@ -17,7 +17,7 @@ export function leagueGenerator(jsonData) {
     
         let dateObj = new Date(event['commence_time'].replace(/T|Z/g, ' '));
         let eventDate = (dateObj.toLocaleString('it-IT').split(', '));
-        singleEventGen(homeTeam, awayTeam, homeQuote, drawQuote, awayQuote, eventDate[1], eventDate[0])
+        singleEventGen(homeTeam, awayTeam, homeQuote, drawQuote, awayQuote, eventDate[1], eventDate[0].replaceAll('/', '.'))
     })
 }
 

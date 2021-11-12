@@ -40,6 +40,18 @@ export function singleEventGen(homeTeam, awayTeam, homeQuote, drawQuote, awayQuo
     oddsVisitorsDiv.className = 'odds';
     oddsVisitorsDiv.textContent = `${awayQuote}`;
     quoteDiv.appendChild(oddsVisitorsDiv);
+   
+}
+
+export function btnQuote() {
+    const btns = [...dailyContent.querySelectorAll('.odds')];
+    btns.forEach((item) => {
+        item.addEventListener('click', (event) => {
+            console.log(item)
+            item.classList.toggle('active')
+        })
+    })
+    
 }
 
 const dailyContent = document.querySelector('.daily_content')
