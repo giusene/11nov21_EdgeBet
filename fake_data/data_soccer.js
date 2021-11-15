@@ -1,4 +1,4 @@
-const serieAData = [
+const soccerData = [
     {
         "id": "a814af3ef7efa87e11915e077d47a49c",
         "sport_key": "soccer_italy_serie_a",

@@ -133,18 +133,18 @@ main .dx_column {
     text-indent: 20px;
 }
 
-.menu li .sub_menu {
+.menu .sub_menu {
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s cubic-bezier(1, -0.01, 0, 1.03) 0s;
 }
 
-.menu li .sub_menu.open{
-    max-height: 500px;
+.menu .sub_menu.open{
+    max-height: 5000px;
     overflow: hidden;
 }
 
-.menu li .sub_menu a{
+.menu .sub_menu a{
     display: block;
     height: 50px;
     font-size: 14px;
@@ -152,17 +152,14 @@ main .dx_column {
     background-color: #1b1a1e;
     text-indent: 30px;
     border-top: 1px solid #0b0b0c;
+    cursor: pointer;
 }
-
-
-
 
 .cart {
     background: #343434;
     min-height: 300px;
     color: #fff;
 }
-
 
 
 main .container {
@@ -259,6 +256,17 @@ main .container .daily_header{
     font-weight: bold;
 }
 
+.bookmaker {
+    line-height: 48px;
+    background: #45ecd3;
+    padding: 0 20px;
+    margin-right: 10px;
+    color: #312f3c;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
 .quote {
     display: flex;
     align-items: center;
@@ -272,6 +280,7 @@ main .container .daily_header{
     color: #312f3c;
     font-weight: bold;
     line-height: 10px;
+    text-transform: uppercase;
 }
 
 .quote .odds{
