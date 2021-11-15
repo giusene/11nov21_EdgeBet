@@ -99,11 +99,14 @@ function h2hEvent(jsonData) {
     const leagueName = document.querySelector('.sport_country__name')
     const countryName = document.querySelector('.sport_country__country')
 
+    
+
     const sportTitle = jsonData[0]['sport_title'].split(' - ');
     leagueName.textContent = sportTitle[0];
     countryName.textContent = sportTitle[1];
 
     jsonData.forEach((event) => {
+        const idMatch = `${event.id}€€${event.sport_key}€€h2h`
 
         if (event.bookmakers[0] === undefined) {
             return;
@@ -136,7 +139,7 @@ function h2hEvent(jsonData) {
 
             let dateObj = new Date(event['commence_time'].replace(/T|Z/g, ' '));
             let eventDate = (dateObj.toLocaleString('it-IT').split(', '));
-            h2hGen(homeTeam, awayTeam, eventDate[1], eventDate[0].replaceAll('/', '.'), bestH2hQuote[0])
+            h2hGen(homeTeam, awayTeam, eventDate[1], eventDate[0].replaceAll('/', '.'), bestH2hQuote[0], idMatch)
         }
     })
 }

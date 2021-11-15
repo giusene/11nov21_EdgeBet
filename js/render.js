@@ -1,4 +1,6 @@
-export function h2hGen(homeTeam, awayTeam, eventHour, eventDate, bestQuoteObj) {
+import { addToCart, cart } from "./cart.js";
+
+export function h2hGen(homeTeam, awayTeam, eventHour, eventDate, bestQuoteObj, idMatch) {
     if (eventDate !== dateForLoop) {
         dateForLoop = eventDate;
         const lineDateDiv = document.createElement('div');
@@ -68,8 +70,11 @@ export function h2hGen(homeTeam, awayTeam, eventHour, eventDate, bestQuoteObj) {
         if (item.name === homeTeam) {
             const oddsHomeDiv = document.createElement('div');
             oddsHomeDiv.className = 'odds';
+            oddsHomeDiv.setAttribute('id', `${idMatch}€€1`);
+            oddsHomeDiv.setAttribute('name', item.name);
             oddsHomeDiv.textContent = item.price;
             quoteDiv.appendChild(oddsHomeDiv);
+            btnQuote(oddsHomeDiv)
         }
     })
 
@@ -77,8 +82,11 @@ export function h2hGen(homeTeam, awayTeam, eventHour, eventDate, bestQuoteObj) {
         if (item.name === 'Draw') {
             const oddsHomeDiv = document.createElement('div');
             oddsHomeDiv.className = 'odds';
+            oddsHomeDiv.setAttribute('id', `${idMatch}€€x`);
+            oddsHomeDiv.setAttribute('name', item.name);
             oddsHomeDiv.textContent = item.price;
             quoteDiv.appendChild(oddsHomeDiv);
+            btnQuote(oddsHomeDiv)
         }
     })
 
@@ -86,11 +94,13 @@ export function h2hGen(homeTeam, awayTeam, eventHour, eventDate, bestQuoteObj) {
         if (item.name === awayTeam) {
             const oddsHomeDiv = document.createElement('div');
             oddsHomeDiv.className = 'odds';
+            oddsHomeDiv.setAttribute('id', `${idMatch}€€2`);
+            oddsHomeDiv.setAttribute('name', item.name);
             oddsHomeDiv.textContent = item.price;
             quoteDiv.appendChild(oddsHomeDiv);
+            btnQuote(oddsHomeDiv)
         }
     })
-    btnQuote();
 }
 
 export function outrightsGen(bestOutrightsQuotes) {
@@ -103,7 +113,7 @@ export function outrightsGen(bestOutrightsQuotes) {
     lineDateDiv.appendChild(quoteDiv);
     const oddDiv = document.createElement('div');
     oddDiv.className = 'odds-first';
-    
+
     oddDiv.textContent = 'winner';
     quoteDiv.appendChild(oddDiv);
 
@@ -130,22 +140,25 @@ export function outrightsGen(bestOutrightsQuotes) {
         oddsHomeDiv.className = 'odds';
         oddsHomeDiv.textContent = singleQuote[0].price;
         quoteDiv.appendChild(oddsHomeDiv);
+        btnQuote(oddsHomeDiv)
     })
 
 
-    btnQuote();
 }
 
 
-function btnQuote() {
-    const btns = [...dailyContent.querySelectorAll('.odds')];
-    btns.forEach((item) => {
-        item.addEventListener('click', (event) => {
-            console.log(item)
-            item.classList.toggle('active')
-        })
+function btnQuote(btn) {
+    btn.addEventListener('click', (event) => {
+        const keys = btn.id.split('€€');
+        const bet = {
+            sport_key: keys[1],
+            id: keys[0],
+            market_key: keys[2],
+            outcome_name: btn.getAttribute('name')
+        }
+    btn.classList.toggle('active')
+    addToCart(bet)
     })
-
 }
 
 const dailyContent = document.querySelector('.daily_content')
